@@ -1,5 +1,7 @@
 # 📊 Diagrammes d'architecture - MalTrack
 
+Ce diagramme présente l’architecture globale de l’application MalTrack basée sur une approche client–serveur.
+
 Ce dossier contient les diagrammes d'architecture du projet MalTrack.
 
 ## 📁 Fichiers
@@ -22,7 +24,7 @@ Ce dossier contient les diagrammes d'architecture du projet MalTrack.
    - Logique métier
    - Connexion MongoDB via Mongoose
 
-3. **Base de données** - MongoDB
+3. **Database (NoSQL)** - MongoDB
    - Users (utilisateurs)
    - Wallets (portefeuilles)
    - Categories (catégories)
@@ -40,12 +42,11 @@ Ce dossier contient les diagrammes d'architecture du projet MalTrack.
 |-----------|--------------|
 | Frontend | React, Tailwind CSS, Axios |
 | Backend | Node.js, Express, JWT |
-| Base de données | MongoDB, Mongoose |
+| Database | MongoDB, Mongoose |
 | Authentification | JWT, bcryptjs |
 
 ## 📋 Informations
 - **Date création** : 25 décembre 2025
-- **Taille** : 42,850 octets
 - **Format** : PNG
 - **Statut** : ✅ Complet
 
