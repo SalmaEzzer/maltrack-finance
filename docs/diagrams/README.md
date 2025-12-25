@@ -50,5 +50,23 @@ Ce dossier contient les diagrammes d'architecture du projet MalTrack.
 - **Format** : PNG
 - **Statut** : ✅ Complet
 
+
+
+## 🗄️ Schéma de base de données
+
+### db-schema.png
+![Schéma DB MalTrack](./db-schema.png)
+
+Ce schéma représente la conception de la base de données MongoDB du projet MalTrack.
+
+Il définit :
+- Les collections principales (Users, Wallets, Transactions, Categories, Goals, Settings)
+- Les champs clés de chaque collection
+- Les relations entre les entités (1→N, 1→1)
+
+Ce schéma sert de référence pour l’implémentation des modèles Mongoose côté backend.
+
+Ce schéma correspond à la version MVP Premium v1.0 et pourra évoluer avec l’ajout de fonctionnalités avancées.
+
 ---
 *Documentation de l'architecture système MalTrack*
