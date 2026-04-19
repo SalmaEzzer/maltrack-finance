@@ -1,0 +1,250 @@
+﻿@import "tailwindcss";
+:root {
+  --violet: 168 85 247;      /* violet (base) */
+  --electric: 196 64 255;    /* violet électrique */
+  --indigo: 99 102 241;
+  --bg: 7 7 18;
+}
+
+html, body {
+  background: rgb(var(--bg));
+  color: rgba(245, 238, 255, 0.92);
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Global text legibility on dark surfaces */
+input,
+textarea {
+  color: rgba(245, 238, 255, 0.96) !important;
+  -webkit-text-fill-color: rgba(245, 238, 255, 0.96) !important;
+  caret-color: rgb(var(--electric));
+  font-family: inherit;
+}
+
+input[type="number"] {
+  color: rgba(245, 238, 255, 0.96) !important;
+  -webkit-text-fill-color: rgba(245, 238, 255, 0.96) !important;
+}
+
+input:focus,
+textarea:focus {
+  color: rgba(245, 238, 255, 0.96) !important;
+  -webkit-text-fill-color: rgba(245, 238, 255, 0.96) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: none !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(216, 180, 255, 0.55);
+}
+
+/* Glow utilities (simple & efficace) */
+.neon-glow {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    0 20px 60px rgba(0,0,0,0.65),
+    0 0 40px rgba(var(--electric), 0.15);
+}
+
+/* Premium scrollbar */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.14); border-radius: 999px; border: 2px solid rgba(0,0,0,0.3); }
+*::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+*::-webkit-scrollbar-track { background: rgba(0,0,0,0.25); }
+
+::selection { background: rgba(var(--electric), 0.35); }
+
+/* ✅ Select dropdown dark — sans enlever les flèches */
+select {
+  color-scheme: dark;              /* aide Chrome/Windows à mettre le popup en dark */
+  background-color: rgba(255,255,255,0.05);
+  color: #e5e7eb;
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+select option,
+select optgroup {
+  background-color: #0b0b16;       /* fond du menu déroulant */
+  color: #e5e7eb;                  /* texte */
+}
+
+/* ===============================
+   Scrollbar premium (dark UI)
+   =============================== */
+
+/* largeur scrollbar */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* partie qu’on déplace */
+*::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 999px;
+}
+
+/* hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* fond */
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+
+/* ===== Premium polish pack ===== */
+
+/* nicer focus */
+:focus-visible {
+  outline: 1px solid rgba(255, 255, 255, 0.22);
+  outline-offset: 1px;
+}
+
+/* glass cards hover */
+.premium-card {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.premium-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.16);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+}
+
+/* subtle top glow line */
+.premium-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(800px 220px at 20% 0%,
+      rgba(168,85,247,0.18), transparent 55%),
+    radial-gradient(700px 220px at 80% 0%,
+      rgba(34,211,238,0.12), transparent 60%);
+  opacity: .75;
+}
+
+/* section title */
+.premium-title {
+  color: rgba(255,255,255,0.92);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+/* tiny badge */
+.premium-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.80);
+}
+
+/* positive / negative badge variants */
+.premium-badge.pos {
+  border-color: rgba(52,211,153,0.25);
+  background: rgba(52,211,153,0.10);
+  color: rgba(167,243,208,0.95);
+}
+.premium-badge.neg {
+  border-color: rgba(248,113,113,0.25);
+  background: rgba(248,113,113,0.10);
+  color: rgba(254,202,202,0.95);
+}
+
+/* chart tooltip glass */
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+.premium-tooltip {
+  background: rgba(10,10,20,0.92);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  padding: 10px 12px;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Recharts: force tooltip text readable + electric violet accent */
+.recharts-default-tooltip {
+  background: rgba(9, 9, 20, 0.96) !important;
+  border: 1px solid rgba(196, 64, 255, 0.35) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.45) !important;
+}
+.recharts-tooltip-label {
+  color: rgba(216, 180, 255, 0.95) !important;
+}
+.recharts-tooltip-item {
+  color: rgba(245, 238, 255, 0.95) !important;
+}
+
+/* chart legend chips */
+.legend-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.75);
+}
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+/* premium select (if you want, optional) */
+.premium-select {
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.88);
+  border-radius: 999px;
+  padding: 8px 12px;
+}
+.premium-select option {
+  background: #0b0b16;
+  color: rgba(255,255,255,0.9);
+}
+
+/* skeleton shimmer */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.05)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.3s infinite;
+  border-radius: 16px;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+
+

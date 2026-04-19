@@ -190,6 +190,94 @@ Règle simple :
 
 Une dépense est considérée comme anormale si elle dépasse un seuil défini par rapport à la moyenne des mois précédents.
 
+3.7 Conception API (REST)
+
+Objectif : définir les points d’accès permettant la communication entre le frontend et le backend.
+
+L’application MalTrack repose sur une API REST sécurisée par JWT.
+Toutes les données échangées entre le frontend (React) et le backend (Node.js / Express)
+passent par ces endpoints.
+
+---
+
+### 🔐 Authentification
+
+| Action | Endpoint | Méthode | Auth requise |
+|------|---------|--------|-------------|
+| Inscription | /api/auth/register | POST | Non |
+| Connexion | /api/auth/login | POST | Non |
+| Récupérer profil | /api/auth/me | GET | Oui |
+
+---
+
+### 💼 Wallets
+
+| Action | Endpoint | Méthode | Auth requise |
+|------|---------|--------|-------------|
+| Liste des wallets | /api/wallets | GET | Oui |
+| Créer un wallet | /api/wallets | POST | Oui |
+| Modifier un wallet | /api/wallets/:id | PUT | Oui |
+| Supprimer un wallet | /api/wallets/:id | DELETE | Oui |
+
+---
+
+### 🏷️ Catégories
+
+| Action | Endpoint | Méthode | Auth requise |
+|------|---------|--------|-------------|
+| Liste des catégories | /api/categories | GET | Oui |
+| Créer une catégorie | /api/categories | POST | Oui |
+| Modifier une catégorie | /api/categories/:id | PUT | Oui |
+| Supprimer une catégorie | /api/categories/:id | DELETE | Oui |
+
+---
+
+### 💳 Transactions
+
+| Action | Endpoint | Méthode | Auth requise |
+|------|---------|--------|-------------|
+| Liste des transactions | /api/transactions | GET | Oui |
+| Ajouter une transaction | /api/transactions | POST | Oui |
+| Modifier une transaction | /api/transactions/:id | PUT | Oui |
+| Supprimer une transaction | /api/transactions/:id | DELETE | Oui |
+
+---
+
+### 🎯 Objectifs d’épargne
+
+| Action | Endpoint | Méthode | Auth requise |
+|------|---------|--------|-------------|
+| Liste des objectifs | /api/goals | GET | Oui |
+| Créer un objectif | /api/goals | POST | Oui |
+| Modifier un objectif | /api/goals/:id | PUT | Oui |
+| Supprimer un objectif | /api/goals/:id | DELETE | Oui |
+
+---
+
+### 📊 Dashboard & statistiques
+
+| Action | Endpoint | Méthode | Auth requise |
+|------|---------|--------|-------------|
+| Résumé financier | /api/stats/summary | GET | Oui |
+
+---
+
+### ⚙️ Paramètres
+
+| Action | Endpoint | Méthode | Auth requise |
+|------|---------|--------|-------------|
+| Récupérer paramètres | /api/settings | GET | Oui |
+| Modifier paramètres | /api/settings | PUT | Oui |
+
+---
+
+### 🔒 Sécurité API
+- Accès sécurisé par token JWT
+- Token envoyé via le header Authorization
+- Accès limité aux données du propriétaire
+- Validation des entrées côté backend
+
+
 4. Contraintes
 4.1 Sécurité
 
