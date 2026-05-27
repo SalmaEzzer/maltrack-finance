@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import {
   ResponsiveContainer,
   AreaChart,
@@ -160,25 +160,98 @@ export default function Insights() {
   const [error, setError] = useState("");
 
   async function loadInsights() {
-    setLoading(true);
-    setError("");
+  setLoading(true);
+  setError("");
 
-    try {
-      const res = await apiFetch("/api/insights");
+  try {
+    const isDemo =
+      localStorage.getItem("token") === "demo-token";
+
+    if (isDemo) {
       setData({
-        kpis: { ...defaultInsightsData.kpis, ...(res.kpis || {}) },
-        predData: res.predData || [],
-        weekData: res.weekData || [],
-        opportunities: res.opportunities || [],
-        insights: res.insights || [],
+        kpis: {
+          health: 82,
+          savings: 1350,
+          precision: 91.4,
+          aiPrecision: 91.4,
+          predictedNext: 4200,
+          deltaSavings: "Excellente stabilité",
+          deltaPredict: "Projection basée sur vos habitudes",
+        },
+
+        predData: [
+          { m: "Jan", hist: 3200, pred: null },
+          { m: "Fév", hist: 3500, pred: null },
+          { m: "Mar", hist: 3900, pred: null },
+          { m: "Avr", hist: 4100, pred: null },
+          { m: "Mai", hist: 3800, pred: 4200 },
+          { m: "Juin", hist: null, pred: 4400 },
+          { m: "Juil", hist: null, pred: 3900 },
+        ],
+
+        weekData: [
+          { d: "Lun", v: 120 },
+          { d: "Mar", v: 260 },
+          { d: "Mer", v: 90 },
+          { d: "Jeu", v: 340 },
+          { d: "Ven", v: 210 },
+          { d: "Sam", v: 480 },
+          { d: "Dim", v: 160 },
+        ],
+
+        opportunities: [
+          {
+            title: "Réduire les abonnements",
+            desc: "Vos petites dépenses récurrentes peuvent être optimisées.",
+            gain: 240,
+            confidence: 88,
+            tone: "emerald",
+          },
+          {
+            title: "Limiter shopping week-end",
+            desc: "Les dépenses augmentent surtout le samedi.",
+            gain: 520,
+            confidence: 76,
+            tone: "amber",
+          },
+        ],
+
+        insights: [
+          {
+            title: "Bonne santé financière",
+            desc: "Votre solde reste positif avec une épargne régulière.",
+            tone: "emerald",
+          },
+          {
+            title: "Objectif atteignable",
+            desc: "Votre objectif principal peut être atteint plus tôt.",
+            tone: "purple",
+          },
+        ],
       });
-    } catch (e) {
-      setError(e.message);
-      setData(defaultInsightsData);
-    } finally {
-      setLoading(false);
+
+      return;
     }
+
+    const res = await apiFetch("/api/insights");
+
+    setData({
+      kpis: {
+        ...defaultInsightsData.kpis,
+        ...(res.kpis || {}),
+      },
+      predData: res.predData || [],
+      weekData: res.weekData || [],
+      opportunities: res.opportunities || [],
+      insights: res.insights || [],
+    });
+  } catch (e) {
+    setError(e.message);
+    setData(defaultInsightsData);
+  } finally {
+    setLoading(false);
   }
+}
 
   useEffect(() => {
     loadInsights();
