@@ -6,6 +6,16 @@ MalTrack helps users manage wallets, track transactions, monitor savings goals a
 
 ---
 
+# 🌐 Live Demo
+
+Frontend Demo:
+
+https://effervescent-paletas-a318ae.netlify.app
+
+👉 Use the **"Accès démo instantané"** button to explore the application without backend deployment.
+
+---
+
 # ✨ Features
 
 - 🔐 Secure JWT Authentication
@@ -14,10 +24,11 @@ MalTrack helps users manage wallets, track transactions, monitor savings goals a
 - 💸 Transaction Tracking
 - 🎯 Savings Goals
 - 📊 Interactive Charts
-- 📱 Responsive Dashboard
+- 📱 Fully Responsive Dashboard
 - 🌙 Modern Banking UI
 - 🛡 Protected Routes
 - ⚡ Fast React + Vite Frontend
+- 🧠 Demo Mode for Portfolio Exploration
 
 ---
 
@@ -71,9 +82,9 @@ maltrack-finance/
 │   └── package.json
 │
 ├── backend/
-│   ├── src/
 │   ├── routes/
 │   ├── models/
+│   ├── middleware/
 │   └── package.json
 │
 ├── docs/
@@ -143,14 +154,26 @@ npm run dev
 
 # 🌍 Deployment
 
-Frontend:
-- Vercel
+## Frontend
+- Netlify
 
-Backend:
-- Render
+## Backend
+- Express API (source code included)
 
-Database:
+## Database
 - MongoDB Atlas
+
+---
+
+# 🎮 Demo Mode
+
+A built-in demo mode allows visitors to explore the application interface without requiring backend deployment.
+
+This mode includes:
+- Demo dashboard data
+- Demo goals
+- Demo insights
+- Interactive UI exploration
 
 ---
 
@@ -163,6 +186,7 @@ Database:
 - [ ] Export Reports
 - [ ] Mobile App Version
 - [ ] Multi-Currency Support
+- [ ] Docker Support
 
 ---
 
